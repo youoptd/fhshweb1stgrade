@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>0922css簡介</title>
+    <style>/* css註解 *
+    /* css語法:
+       選擇器 {屬性:設定;}*/
+    /*選擇器 selector:
+    tag(html標籤)
+    #id 例:#d1 #d2 #d3
+    .class 例:.c1 .c2
+    */
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        color: red;
+        display: inline-block;
+
+    }
+    .c1{
+        background-color: pink;
+    }
+    .c2{
+        background-color: hsl(167, 95%, 46%);
+    }
+    /* css的顏色寫法
+       1.英文顏名稱
+       2.rgb(r 0~255,g 0~255,b 0~255)
+       3.hsl(色相0~360,彩度0~100%,亮度0~100%)
+       4.rgba(a:可見度 0~1)
+       5.hsla(a:可見度 0~1)
+       6.#色碼(#rrggbb)
+    */
+    /*
+       display:block/inline/inline-block
+       block:區塊元素，自己一行，可設寬高
+       inline:
+
+    */
+
+    </style>
+</head>
+<body>
+    <!-- id:必須獨一無二，字母開頭
+         class:類別，不需獨一無二，字母開頭，可共用，可多重，用空白尖隔
+         -->
+    <div id="d" class="c1"></div>
+    <div id="d1" class="c2"></div>
+    <div id="d2" class="c1"></div>
+    <div id="d3" class="c1 c2"></div>
+    <span>2</span>
+
+</body>
+</html>
