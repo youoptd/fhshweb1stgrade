@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>css動畫</title>
+        <style>
+          div{
+            margin: 5px;
+          }
+          @keyframes k1{
+            0%{ background: linear-gradient(90deg,red,white 30%,blue);}
+            13%{ background: linear-gradient(90deg,red,white 35%,blue);}
+            26%{ background: linear-gradient(90deg,red,white 50%,blue);}
+            39%{ background: linear-gradient(90deg,red,white 60%,blue);}
+            45%{ background: linear-gradient(90deg,red,white 70%,blue);}
+            60%{ background: linear-gradient(90deg,red,white 91%,blue);}
+            100%{ background: linear-gradient(90deg,red,white 100%,blue);}
+          }
+          #a1{
+            height: 50px;
+            width: 400px;
+            animation: k1 0.5s infinite linear;
+          }
+          @keyframes k2{
+            0%{ background: linear-gradient(90deg,red,blue);}
+            13%{ background: linear-gradient(180deg,red,blue);}
+            26%{ background: linear-gradient(240deg,red,blue);}
+            39%{ background: linear-gradient(360deg,red,blue);}
+            45%{ background: linear-gradient(90deg,red,blue);}
+            60%{ background: linear-gradient(180deg,red,blue);}
+            100%{ background: linear-gradient(240deg,red,blue);}
+          }
+          #a2{
+            height: 50px;
+            width: 400px;
+            animation: k2 0.5s infinite linear;
+          }
+          @keyframes k3{
+            0%{background: radial-gradient(circle,red,white 30%,blue);}
+            13%{background: radial-gradient(circle,red,white 35%,blue);}
+            26%{background: radial-gradient(circle,red,white 50%,blue);}
+            39%{background: radial-gradient(circle,red,white 60%,blue);}
+            45%{background: radial-gradient(circle,red,white 70%,blue);}
+            60%{background: radial-gradient(circle,red,white 91%,blue);}
+            100%{background: radial-gradient(circle,red,white 100%,blue);}
+          }
+          #a3{
+            height: 200px;
+            width: 200px;
+            animation: k3 0.5s infinite linear;
+          }
+          @keyframes k4{
+            0%{background: repeating-radial-gradient(circle, black 25%,white 30%,black 35%);}
+            50%{background: repeating-radial-gradient(circle, white 25%,black 30%,white 35%);}
+           100%{background: repeating-radial-gradient(circle, black 25%,white 30%,black 35%);}
+          }
+          #a4{
+            height: 100px;
+            width: 400px;
+            animation: k4 0.4s infinite linear;
+          }
+          @keyframes k5{
+            0%{ background: repeating-conic-gradient(from 90deg,yellow 25%,white 30%,black 35%);}
+            50%{ background: repeating-conic-gradient(from 90deg,black 25%,white 30%,yellow 35%);}
+            100%{ background: repeating-conic-gradient(from 90deg,yellow 25%,white 30%,black 35%);}
+          }
+          #a5{
+            height: 100px;
+            width: 400px;
+            animation: k5 0.4s infinite linear;
+          }
+        @keyframes k6 {
+            0% { background: hsl(0deg,30%,70%);}
+            13% { background: hsl(45deg,30%,70%);}
+            25% { background: hsl(90deg,30%,70%);}
+            37% { background: hsl(135deg,30%,70%);}
+            50% { background: hsl(180deg,30%,70%);}
+            67% { background: hsl(225deg,30%,70%);}
+            75% { background: hsl(270deg,30%,70%);}
+            88% { background: hsl(315deg,30%,70%);}
+            100% { background: hsl(360deg,30%,70%);}
+        }
+        body {
+            animation: k6 9s infinite linear;
+        }
+        </style>
+        
+
+
+    </head>
+    <body>
+        <div id="a1"></div>
+        <div id="a2"></div>
+        <div id="a3"></div>
+        <div id="a4"></div>
+        <div id="a5"></div>
+        
+    </body>
+
+
+
+
+</html>

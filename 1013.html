@@ -1,7 +1,10 @@
 <html>
     <head>
-        <title>css漸層</title>
+        <title>css漸層-線性</title>
         <style>
+            div{
+                margin: 5px;
+            }
             #d1 {
                 height: 100px;
                 background: linear-gradient(to right,red,yellow );/*top bottom right left*/ /* 0~360deg (degree)0上 90右*/
@@ -14,6 +17,40 @@
                 height: 100px;
                 background: linear-gradient(to right,red, white 30%,blue);
             }
+             #d4 {
+                height: 100px;
+                background: linear-gradient(to right,black 33%, black 66%,blue);
+            }
+            #d5 {
+                height: 100px;
+                background: repeating-linear-gradient(45deg,red 30%, white 33%,red 36%);
+            }#d6{
+            height: 200px;
+            width: 200px;
+            background:radial-gradient(yellow,white,black);
+           }
+           #d7{
+            height: 200px;
+            width: 400px;
+            background:radial-gradient(yellow,white,black);/*circle:強制變為圓形*/
+           }
+           #d8{
+            height: 200px;
+            width: 400px;
+            background: repeating-radial-gradient(circle, black 25%,white 30%,yellow 35%);
+           }
+           #d9{
+            height: 200px;
+            width: 200px;
+            background: conic-gradient(from 90deg,yellow,green,red,yellow);/*from deg重哪開始*/
+            display: inline-block;
+           }
+           #d10{
+            height: 200px;
+            width: 200px;
+            background: repeating-conic-gradient(from 90deg,yellow 25%,white 30%,black 35%);
+            display: inline-block;
+           }
 
         </style>
 
@@ -23,6 +60,14 @@
         <div id="d1"></div>
         <div id="d2"></div>
         <div id="d3"></div>
+        <div id="d4"></div>
+        <div id="d5"></div>
+        <div id="d6"></div>
+        <div id="d7"></div>
+        <div id="d8"></div>
+        <div id="d9"></div>
+        <div id="d10"></div>
+        
     </body>
 
 
