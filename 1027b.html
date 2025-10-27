@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>位移與變形</title>
+        <style>
+            /*
+                position:relative/absolute
+                    relative:相對於自己本來的位子
+                    abosolute:相對於有設定過position的副容器(或body)
+                top/left:距離上方/左方
+                right/bottom:距離右方/下方
+                    */
+            #d1{
+                width: 100px;
+                height: 100px;
+                background: orchid;
+            }
+            #d2{
+                width: 100px;
+                height: 100px;
+                background: plum;
+                position: absolute;
+                top: 20px;
+                left: 40px;
+            }
+             #d3{
+                width: 400px;
+                height: 400px;
+                border: 1px solid black;
+                position: relative;
+                left: 70px;
+            }
+            #d4{
+                width: 100px;
+                height: 100px;
+                background: orchid;
+            }
+            #d5{
+                width: 100px;
+                height: 100px;
+                background: mediumslateblue;
+                position: absolute;
+                top: 20px;
+                left: 40px;
+            }
+            /*transform變形
+                rotate(deg)旋轉
+                translate(x,y)位移
+                scale(x,y)放大縮小
+
+            */
+            #d6{
+                width: 200px;
+                height: 100px;
+                background: orchid;
+                transform: rotate(45deg) translate(50px,0) scale(1,2);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <div id="d3">
+            <div id="d4"></div>
+            <div id="d5"></div>
+        </div>
+        <div id="d6"></div>
+        <div id="d7"></div>
+        <div id="d8"></div>
+    </body>
+</html>
