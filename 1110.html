@@ -6,11 +6,33 @@
             /*雙行*/
             function hello(){
                 console.log("waZUp");
-                alert("whatsurproblem")
+                alert("what's the matter???");
+                prompt("問題-確認:字串 取消回傳:null");
+                confirm("確認用");
+                parseInt("將字串轉整數,不是數字的話回傳NaN");
+            }
+            function sum(){
+                var n1=document.getElementById("n1");
+                var n2=document.getElementById("n2");
+                var n3=document.getElementById("n3");
+                var ans= document.getElementById("ans");
+                if(isNaN(n1)){
+                    n1=0;
+                }
+                n2=isNaN(n2)? 0:n2;
+                n3.value=n1*n2;
+                ans.innerHTML=`答案是${n1*n2}`; 
             }
         </script>
     </head>
     <body>
-        <button onclick="hello();">按我</button>
+        <input type="text" value="文字內容" placeholder="佔位符">輸入
+        <input type="password" value="321312321">
+        <input type="number" min="0" max="100" step="5">
+        <input id="d1" type="datetime-local" value="2025-11-10T10:10"><!--value格式=YYYY-MM-DDThh:mm --><br>
+         <input id="color" type="color" value="#4555FF">
+         <hr>
+         <input id="n1" type="number">+<input id="n2" type="number">
+        <button onclick="sum();">=</button><input type="number" id="n3"><div id="ans"></div>
     </body>
 </html>
