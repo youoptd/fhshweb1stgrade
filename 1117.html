@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>1117</title>
+        <script>
+            function do_timer(){
+                sec++;
+                timer=document.getElementById("timer")
+                timer.innerHTML=`${sec} seconds...`
+            }
+            function start_timer(){
+                sec=0
+                t1=setInterval(do_timer,1000)
+            }
+            function stop_timer(){
+                clearInterval(t1)
+            }
+
+
+
+            function do_rand(){
+                var n=Math.floor(Math.random()*100)
+                document.getElementById("random").innerHTML=(n<10)?("0"+n):n
+            }
+            function lottery(){
+              setTimeout(clearInterval,3000,setInterval(do_rand,10));
+            }
+
+
+
+            function dice(){
+                var dice=document.getElementById("dice")
+                dice.timer=setInterval(function(x){
+                    var n=Math.floor(Math.random()*6)+1
+                    img.src=`${n}.png`
+                ,10,dice})
+                
+            }
+            function stop_dice(x){
+                var dice=document.getElementById("dice")
+                if(dice.timer>0){
+                    alert("尚未開始")
+                    dic.src=`${n}.png`
+                    return
+                }
+                clearInterval(dice.timer)
+                dice.timer=0
+                var n=Math.floor(Math.random()*6)+1
+                dice.src=`${n}.png`
+                if(n%2==x){
+                        document.getElementById("message".innerHTML="you right!")
+                    }else{
+                        document.getElementById("message".innerHTML="you wrong!")
+                    }
+            }
+        </script>
+        <style>
+            #random{
+                font-size: 80pt;
+                font-family: "fantasy",;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="start_timer()">開始計時</button>
+        <button onclick="stop_timer()">停止計時</button>
+        <div id="timer">0sec...</div>
+        <hr>
+        <button onclick="lottery()">抽籤</button>
+        <div id="random">00</div>
+        <hr>
+        <img id="dice" src="Q.png" height="120px" onclick="dice()">
+        <button on_click="stop_dice(1)">奇數</button>
+        <button on_click="stop_dice(0)">偶數</button>
+         <div id="message"></div>
+    </body>
+</html>
