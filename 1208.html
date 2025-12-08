@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>1208</title>
+        <style>
+            #map{
+                width: 800px;
+                height: 800px;
+                background: url("grass.jpg");
+                background-size: 30%;
+                animation: bg_move 3s linear infinite;
+                position: relative;
+            }
+            @keyframes bg_move{
+                0%{background-position: 0% 0%;}
+                30%{background-position: 5px 0%;}
+                100%{background-position: 0% 0%;}
+            }
+            #role{
+                width: 48px;
+                height: 72px;
+                background-image: url("sprite.png");
+                border: 1px solid red;
+                background-position: -144px -288px;
+                animation: walking 0.7s steps(3) infinite;
+                position: absolute;
+                
+            }
+            @keyframes walking{
+                0%{background-position-x:-144px;}
+                100%{background-position-x:-288px ;}
+            }
+        </style>
+        <script>
+            function mykeydown(){
+                console.log(event.key)
+                event.preventDefault();
+                var role=document.getElementById("role")
+                
+                if(event.key=="w"){
+                    role.style.backgroundPositionY="-504px"
+                    if(role.posY>0)role.posY--
+                }else if(event.key=="a"){
+                    role.style.backgroundPositionY="-360px"
+                    if(role.posX>0)role.posX--
+                }else if(event.key=="s"){
+                    role.style.backgroundPositionY="-288px"
+                    if(role.posY<728)role.posY++
+                }else if(event.key=="d"){
+                    role.style.backgroundPositionY="-432px"
+                    if(role.posX<752)role.posX++
+                }
+                role.style.top=role.posY+"px"
+                role.style.left-role.posX+"px"
+            }
+            function page_init(){
+                var role=document.getElementById("role")
+                role=posX=0;
+                role.posY=0
+            }
+        </script>
+    </head>
+    <body onload="" onkeydown="mykeydown();">
+        <div id="map"><div id="role"></div>
+        
+    </body>
+</html>
