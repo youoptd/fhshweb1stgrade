@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title>1215</title>
+        <style>
+            #spaces{
+                width: 800px;
+                height: 800px;
+                background: url("bg_stars.jpg");
+                animation: bg_move 2s linear infinite;
+                position: relative;
+            }
+            @keyframes bg_move{
+                0%{background-position-y:0px ;}
+                100%{background-position-y:210px ;}
+            }
+            #ship{
+                width: 40px;
+                height: 60px;
+                background: url("ship.png");
+                background-size: 40px 60px;
+                position: absolute;
+                top: 740px;
+                left: 380px;
+            }
+            .ufo{
+                width: 60px;
+                height: 40px;
+                background: url("ufo.png");
+                background-size: 60px 40px;
+                position: absolute;
+
+            }
+            .bullet{
+                width: 4px;
+                height: 6px;
+                background-color: red;
+                position: absolute;
+            }
+        </style>
+        <script>
+            function ship_move(){
+                if(ship.posX>0&&dir["a"]){
+                    ship.posX--
+                }else if(ship.posX+ship.w<space.w&&dir["d"]){
+                    ship.posX++
+                }
+                ship.style.left=ship.posX+"px"
+            }
+            
+            function game_init(){
+                dir={"a":0,"d":0,"w":0,"s":0}
+                spaces={w:800,h:800}
+                ship=document.getElementById("ship")
+                ship.w=40
+                ship.h=60
+                ship.posX=(space.w-ship.w)/2
+                ship.posY=800-space.h-ship.h
+                ship.style.left=ship.posX+"px"
+                ship.style.top=posY+"px"
+                ship.move=setInterval(ship_move,4)
+                game-t1=setInterval(ufo_create,1000)
+            }
+            function mykeydown(){
+                event.preventDefault()
+                if(event.key==" "){
+                    shoot()
+                }else if(event.key=="a"||event.key=="d")
+                dir[event.key]=1
+            }
+            function mykeyup(){
+                event.preventDefault()
+                dir[event.key]=0
+            }
+            function getrand(){
+                Math.floor(Math.random()*(max-min+1))+min
+            }
+            function ufo_move(){
+                if(ufo.posY+ufo.h>spaces.h){
+                    clearInterval(ufo.move)
+                    ufo_remove();
+                    return
+                }
+                    ufo.posY++
+                    ufo.posX=getrand(-3.3)
+                    if(ufo.posX)ufo.posX=0
+                    else if(ufo.posX+ufo.w>spaces.w)ufo.posX=spaces.w-ufo.w
+                    u.style.top=ufo.posY+"px"
+                    u.style.left=ufo.posX+"px"
+                }
+              
+            
+            function ufo_create(){
+                var u=document.createElement("img")
+                u.src="ufo.png"
+                u.className="ufo"
+                u.w=60
+                u.h=40
+                u.posX=getrand(0,space-u.w)
+                u.posY=getrand(0,10)
+                document.getElementById("spaces").appendChild(u)
+                u.style.left=u.posX+"px"
+                u.style.top=posY+"px"
+                u.move=setInterval(ufo_move,10,u)
+            }
+            function bullet_move(){
+                if(bt.posY<0){
+                    clearInterval(bt.move)
+                    bt.move()
+                    return
+                }
+                bt.posY--
+                bt.style
+            }
+            function bullet_create(){
+                var b=document.createElement("div")
+                b.className="bullet"
+                b.w=4
+                b.w=6
+                b.posX=ship.posX+(ship.w-b.w)/2
+                b.posY=ship.posY-b.h
+                document.getElementById("spaces").appendChild(b)
+                b.style.left=b.posX+"px"
+                b.style.top=b.posX+"px"
+                u.move=setInterval(bullet_move,10,b)
+            }
+        </script>
+    </head>
+    <body onload="game_init()" onkeydown="mykeydown()" onkeyup="mykeyup()">
+        <div id="spaces">
+            <div id="ship">
+            <div class="ufo"></div> 
+            <div class="bullet"></div>   
+        </div>
+    </body>
+</html>
