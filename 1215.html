@@ -36,6 +36,10 @@
                 background-color: red;
                 position: absolute;
             }
+            .status{
+                width: 800px;
+                
+            }
         </style>
         <script>
             function ship_move(){
@@ -58,7 +62,23 @@
                 ship.style.left=ship.posX+"px"
                 ship.style.top=posY+"px"
                 ship.move=setInterval(ship_move,4)
-                game-t1=setInterval(ufo_create,1000)
+                game_score=0
+                game_time=0
+                game__timer=setInterval(function(){
+                    get_time++
+                    document.getElementById("game_time").innerHTML=game_time
+                },1000)
+                game_t1=setInterval(ufo_create,1000)
+                game_starting=true
+            }
+            function game_over(){
+                game_starting=false
+                clearInterval(ufo_creater)
+                clearInterval(game__timer)
+                document.getElementById("space").style.animationPlayState="pause"
+                Array.from(document.getElementsByClassName("ufo")).forEach((u)=>{
+                    clearInterval(u.move)
+                })
             }
             function mykeydown(){
                 event.preventDefault()
@@ -78,6 +98,7 @@
                 if(ufo.posY+ufo.h>spaces.h){
                     clearInterval(ufo.move)
                     ufo_remove();
+                    game_over()
                     return
                 }
                     ufo.posY++
@@ -95,7 +116,7 @@
                 u.className="ufo"
                 u.w=60
                 u.h=40
-                u.posX=getrand(0,space-u.w)
+                u.posX=getrand(0,space.w-u.w)
                 u.posY=getrand(0,10)
                 document.getElementById("spaces").appendChild(u)
                 u.style.left=u.posX+"px"
@@ -109,9 +130,25 @@
                     return
                 }
                 bt.posY--
-                bt.style
+                bt.style.top=bt.posY+"px"
+                var hit_ufo=Array.from(getElementsByClassName("ufo")).filter(function(u){
+                    return (u.posX<=pt.posX)&&(u.posX+u.w>=posX+bt.w)&&(u.pos.Y+u.h>=bt.posY)
+                })
+                if(hit_ufo.length>0){
+                    clearInterval(bt.move)
+                    bt.move()
+                    hit_ufo.forEach((u)=>{
+                        clearInterval(u.move)
+                        u.remove()
+                    })
+                    game_score++
+                    document.getElementById('score').innerHTML=game_score
+                }
             }
-            function bullet_create(){
+            function shoot(){
+                if(game_starting=false){
+                    return
+                }
                 var b=document.createElement("div")
                 b.className="bullet"
                 b.w=4
@@ -128,8 +165,11 @@
     <body onload="game_init()" onkeydown="mykeydown()" onkeyup="mykeyup()">
         <div id="spaces">
             <div id="ship">
-            <div class="ufo"></div> 
-            <div class="bullet"></div>   
+            
         </div>
+        <div id="status">得分: <span id="score">0</span>分
+        <span style="float: right;">時間: <span id="game_time">0</span>秒</span>
+        </div>
+        <button id="restart"></button>
     </body>
 </html>
