@@ -1,15 +1,52 @@
-<html>
-    <head>
-        <title>期末程式</title>
-        <style>
+<head>
+    <title>11211</title>
+    <style>
+        body{
+            background-image: url(ultra_code.jpg);
+            background-size: cover;
             
-        </style>
-        <script>
+        }
+    </style>
+</head>
+<body>
 
-        </script>
-    </head>
-    <body>
-        <img src="spike.png">
-        <div></div>
-    </body>
+    <h1>終極密碼1~1000</h1>
+    <p>請猜一個數字</p>
+    <p>範圍：<span id="min">1</span> ～ <span id="max">1000</span></p>
+
+    <input type="number" id="guess">
+    <button onclick="check()">猜</button>
+
+    <p id="message"></p>
+
+    <script>
+        let answer = Math.floor(Math.random() * 1000) + 1;
+        let min = 1;
+        let max = 1000;
+
+        function check() {
+            let g = Number(document.getElementById("guess").value);
+            let msg = document.getElementById("message");
+
+            if (g <= min || g >= max) {
+                msg.innerText = "請輸入範圍內的數字";
+                return;
+            }
+
+            if (g == answer) {
+                msg.innerText = "猜對了";
+            } else if (g > answer) {
+                max = g;
+                msg.innerText = "太大了";
+            } else {
+                min = g;
+                msg.innerText = "太小了";
+            }
+
+            document.getElementById("min").innerText = min;
+            document.getElementById("max").innerText = max;
+        }
+    </script>
+
+</body>
 </html>
